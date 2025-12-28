@@ -1,65 +1,137 @@
-import Image from "next/image";
+import { Navbar } from "@/components/navbar"
+import { Hero } from "@/components/hero"
+import { FeatureGrid } from "@/components/feature-grid"
+import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
+import { StatsSection } from "@/components/stats-section"
+import { TestimonialsSection } from "@/components/testimonials-section"
+import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-background">
+      <Navbar />
+      <Hero />
+      <StatsSection />
+      <FeatureGrid />
+
+      <section id="lending" className="py-24 px-6 border-t border-border">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-px bg-accent" />
+                <p className="text-xs uppercase tracking-wider text-accent font-medium">Lending Intelligence</p>
+              </div>
+              <h2 className="text-5xl md:text-6xl font-bold tracking-tight leading-[0.90]">
+                Capital
+                <br />
+                <span className="text-accent">Acceleration</span>
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Transform debt markets with AI-driven risk assessment, automated document verification, and intelligent
+                decisioning protocols.
+              </p>
+              <div className="pt-4">
+                <Button>
+                  Explore Solutions <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+
+            <div className="aspect-[4/3] bg-secondary border-2 border-border relative overflow-hidden">
+              <img
+                src="/loan-origination-dashboard-screenshot.jpg"
+                alt="Loan Origination Platform"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="real-estate" className="py-24 px-6 bg-secondary/50">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="aspect-[4/3] bg-background border-2 border-border relative overflow-hidden order-2 lg:order-1">
+              <img
+                src="/luxury-modern-architecture-glass-skyscraper-with-d.jpg"
+                alt="Premium Real Estate"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="space-y-6 order-1 lg:order-2">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-px bg-accent" />
+                <p className="text-xs uppercase tracking-wider text-accent font-medium">PropTech Innovation</p>
+              </div>
+              <h2 className="text-5xl md:text-6xl font-bold tracking-tight leading-[0.90]">
+                Premium
+                <br />
+                <span className="text-accent">Listings</span>
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Multi-channel distribution, virtual tour integration, and developer-focused project tracking for
+                high-end real estate markets.
+              </p>
+              <div className="pt-4">
+                <Button>
+                  View Platform <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="crm" className="py-24 px-6 border-t border-border">
+        <div className="container mx-auto text-center max-w-4xl">
+          <div className="space-y-8">
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-12 h-px bg-accent" />
+              <p className="text-xs uppercase tracking-wider text-accent font-medium">CRM Intelligence</p>
+              <div className="w-12 h-px bg-accent" />
+            </div>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.90]">
+              Enterprise CRM
+              <br />
+              <span className="text-accent">Intelligence</span>
+            </h2>
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Unify every lead, loan, and listing. One platform. One truth. Infinite possibilities.
+            </p>
+            <div className="pt-6 flex flex-col sm:flex-row justify-center gap-4">
+              <Button size="lg">Request Demo</Button>
+              <Button size="lg" variant="outline">
+                View Features
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <TestimonialsSection />
+
+      <section className="py-24 px-6 border-t border-border text-center">
+        <div className="container mx-auto max-w-3xl space-y-8">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95]">
+            Ready to Transform
+            <br />
+            <span className="text-accent">Your Operations?</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+            Join elite financial institutions powering their growth with Finaz.ai's intelligent platform
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
+            <Button size="lg">Get Started Now</Button>
+            <Button size="lg" variant="outline">
+              Contact Sales
+            </Button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      <Footer />
+    </main>
+  )
 }
